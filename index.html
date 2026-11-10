@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101526">
+<meta name="description" content="A little corner of the internet that checks in, starts conversations and makes someone's day brighter.">
+<title>How Have You Been? — A Little Check-In</title>
+<style>
+:root{color-scheme:dark;--bg:#101526;--panel:#1a2238;--panel2:#202b45;--text:#f6f4ff;--muted:#b9bfd2;--accent:#b9a4ff;--accent2:#7de0c3;--line:#ffffff20;--shadow:0 24px 70px #05081280}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 12% 8%,#51417b55,transparent 35%),radial-gradient(ellipse at 90% 80%,#1a806455,transparent 33%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;line-height:1.6;overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;width:300px;height:300px;border-radius:50%;filter:blur(90px);opacity:.17;pointer-events:none;z-index:-1;animation:drift 16s ease-in-out infinite alternate}body:before{background:#9d79ff;top:8%;right:-120px}body:after{background:#55d6b2;bottom:0;left:-130px;animation-delay:-7s}
+@keyframes drift{to{transform:translate(45px,-35px) scale(1.18)}}@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+header{max-width:1100px;margin:auto;padding:24px 6%;display:flex;justify-content:space-between;align-items:center;gap:18px}.brand{font-weight:800;letter-spacing:.04em}.brand span{color:var(--accent)}nav{display:flex;gap:22px}nav a{color:var(--muted);text-decoration:none;font-size:.92rem}nav a:hover{color:var(--text)}button,a{font:inherit}.theme{border:1px solid var(--line);background:#ffffff0b;color:var(--text);border-radius:999px;padding:9px 13px;cursor:pointer}
+main{max-width:1050px;margin:auto;padding:42px 6% 90px}.hero{text-align:center;padding:52px 0 38px}.eyebrow{font-size:.76rem;text-transform:uppercase;letter-spacing:.2em;color:var(--accent2);font-weight:800}.hero h1{font-size:clamp(2.8rem,7vw,5.4rem);line-height:1.04;letter-spacing:-.055em;margin:18px 0}.hero h1 span{background:linear-gradient(90deg,var(--accent),#f0c5ff,var(--accent2));background-clip:text;color:transparent}.hero>p{max-width:600px;margin:0 auto;color:var(--muted);font-size:1.08rem}.card{max-width:760px;margin:28px auto 0;padding:clamp(22px,5vw,42px);border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,#ffffff10,#ffffff05);box-shadow:var(--shadow);backdrop-filter:blur(18px);text-align:left}.card h2{font-size:clamp(1.5rem,4vw,2.2rem);margin:0 0 7px}.sub{color:var(--muted);margin:0 0 22px}.choices{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.choice{min-height:104px;border:1px solid var(--line);border-radius:17px;background:#ffffff08;color:var(--text);cursor:pointer;padding:13px 8px;transition:.2s}.choice:hover,.choice.selected{transform:translateY(-3px);border-color:var(--accent);background:#b9a4ff20}.choice .emoji{display:block;font-size:1.8rem;margin-bottom:5px}.choice small{color:var(--muted)}.response{display:none;margin-top:22px;padding:18px;border-radius:16px;background:#7de0c312;border:1px solid #7de0c344;animation:rise .3s ease}.response.show{display:block}.response p{margin:0 0 12px}.response .prompt{font-weight:700;color:var(--accent2)}.actions{display:flex;flex-wrap:wrap;gap:10px}.btn{border:0;border-radius:12px;padding:11px 16px;background:var(--accent);color:#171328;font-weight:800;cursor:pointer}.btn.secondary{background:#ffffff0b;color:var(--text);border:1px solid var(--line)}.section{padding:66px 0 12px}.section-head{text-align:center;margin-bottom:24px}.section h2{font-size:2rem;margin:8px 0}.section-head p{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.tile{border:1px solid var(--line);background:#ffffff08;border-radius:19px;padding:22px}.tile .symbol{font-size:1.6rem}.tile h3{margin:8px 0 4px}.tile p{margin:0;color:var(--muted);font-size:.95rem}.question-box{max-width:760px;margin:0 auto;text-align:center;border:1px solid var(--line);border-radius:22px;background:#ffffff08;padding:28px}.question{font-size:1.3rem;font-weight:750;min-height:62px}.question-box .btn{margin-top:10px}.note{max-width:760px;margin:55px auto 0;text-align:center;color:var(--muted);font-size:.9rem}footer{border-top:1px solid var(--line);text-align:center;color:var(--muted);padding:24px 6%;font-size:.9rem}
+body.light{color-scheme:light;--bg:#f4f1ff;--panel:#fff;--panel2:#eeeaff;--text:#211b35;--muted:#655f78;--line:#33265b22;--shadow:0 24px 70px #574b791c;background:radial-gradient(ellipse at 12% 8%,#c7b6ff88,transparent 35%),radial-gradient(ellipse at 90% 80%,#a9eddb88,transparent 33%),var(--bg)}body.light .card{background:#ffffffa8}body.light .choice,body.light .tile,body.light .question-box,body.light .theme{background:#ffffff80}body.light .response{background:#d9f8ed;border-color:#8ad7bd}body.light .btn.secondary{color:var(--text)}
+@media(max-width:700px){header{padding:18px 5%;flex-wrap:wrap}nav{order:3;width:100%;justify-content:center;gap:18px}main{padding:24px 5% 65px}.hero{padding:35px 0 20px}.choices{grid-template-columns:repeat(2,1fr)}.choice:last-child{grid-column:1/-1}.grid{grid-template-columns:1fr}.card{border-radius:22px}.section{padding-top:50px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="brand">A LITTLE <span>CHECK‑IN</span> ✦</div><nav aria-label="Main navigation"><a href="#checkin">Check in</a><a href="#conversation">Conversation starters</a><a href="#kindness">A little kindness</a></nav><button class="theme" id="theme" type="button" aria-label="Toggle colour theme">☀ Light mode</button></header>
+<main>
+<section class="hero"><div class="eyebrow">A small pause in a busy day</div><h1>Hey there.<br><span>How have you been?</span></h1><p>No perfect answer needed. Whether life has been amazing, ordinary, or a little complicated, this little corner is here to start a good conversation.</p></section>
+<section class="card" id="checkin" aria-labelledby="checkTitle"><h2 id="checkTitle">So, how are you really doing?</h2><p class="sub">Pick the answer that feels closest today. You can always change it.</p>
+<div class="choices" role="group" aria-label="How are you feeling?">
+<button class="choice" data-mood="great"><span class="emoji">😄</span><strong>Great</strong><br><small>Life is good</small></button>
+<button class="choice" data-mood="good"><span class="emoji">🙂</span><strong>Pretty good</strong><br><small>Can't complain</small></button>
+<button class="choice" data-mood="okay"><span class="emoji">😐</span><strong>Just okay</strong><br><small>Taking it as it comes</small></button>
+<button class="choice" data-mood="low"><span class="emoji">🌧️</span><strong>A bit much</strong><br><small>It's been a day</small></button>
+<button class="choice" data-mood="unsure"><span class="emoji">🫧</span><strong>Not sure</strong><br><small>Still figuring it out</small></button>
+</div>
+<div class="response" id="response" aria-live="polite"><p id="reply"></p><p class="prompt" id="follow"></p><div class="actions"><button class="btn" id="share" type="button">Share my check-in ↗</button><button class="btn secondary" id="reset" type="button">Choose another answer</button></div></div>
+</section>
+<section class="section" id="conversation"><div class="section-head"><div class="eyebrow">Keep the conversation going</div><h2>Here's something to talk about</h2><p>Tap the button for a fresh question. Perfect for friends, family, or getting to know someone.</p></div><div class="question-box"><div class="question" id="question" aria-live="polite">What's one little thing that made you smile recently?</div><button class="btn" id="nextQuestion" type="button">Give me another question ↻</button></div></section>
+<section class="section" id="kindness"><div class="section-head"><div class="eyebrow">A few reminders</div><h2>In case you needed to hear this</h2><p>Little reminders can make an ordinary day feel lighter.</p></div><div class="grid">
+<article class="tile"><div class="symbol">🌱</div><h3>Small steps count</h3><p>You don't have to have everything figured out today. Progress can be quiet.</p></article>
+<article class="tile"><div class="symbol">💬</div><h3>It's okay to talk</h3><p>You deserve people who listen. Reaching out is a good thing.</p></article>
+<article class="tile"><div class="symbol">✨</div><h3>Your story is unfolding</h3><p>A slow chapter is still part of the story. Give yourself room to grow.</p></article>
+</div></section>
+<p class="note">Made for genuine conversations, thoughtful check-ins, and making someone feel remembered. Send this page to someone and ask them: how have you been?</p>
+</main>
+<footer>Made with a little kindness ✦ <span id="year"></span></footer>
+<script>
+const moods={
+ great:{reply:"That's lovely to hear! Hold on to whatever is bringing you that good energy.",follow:"What's been the best part of your week so far?"},
+ good:{reply:"Glad things are going pretty well. Sometimes steady and peaceful is exactly what we need.",follow:"Anything exciting you're looking forward to?"},
+ okay:{reply:"Fair enough. You don't have to turn every day into a big achievement. Showing up is something.",follow:"What would make the rest of today a little better?"},
+ low:{reply:"Thanks for being honest. You don't have to pretend everything is fine. Take things one step at a time.",follow:"Would talking it out, having a distraction, or simply taking a break help most?"},
+ unsure:{reply:"That's a valid answer too. Sometimes it takes a moment to work out how we're feeling.",follow:"What's one thing that's been on your mind lately?"}
+};
+let selected=null;
+document.querySelectorAll(".choice").forEach(button=>button.addEventListener("click",()=>{
+ selected=button.dataset.mood;document.querySelectorAll(".choice").forEach(b=>{b.classList.toggle("selected",b===button);b.setAttribute("aria-pressed",b===button?"true":"false")});
+ document.getElementById("reply").textContent=moods[selected].reply;document.getElementById("follow").textContent=moods[selected].follow;document.getElementById("response").classList.add("show");
+}));
+document.getElementById("reset").addEventListener("click",()=>{selected=null;document.querySelectorAll(".choice").forEach(b=>{b.classList.remove("selected");b.setAttribute("aria-pressed","false")});document.getElementById("response").classList.remove("show")});
+document.getElementById("share").addEventListener("click",async()=>{const text="My check-in: "+({great:"Great 😄",good:"Pretty good 🙂",okay:"Just okay 😐",low:"A bit much 🌧️",unsure:"Not sure 🫧"}[selected])+". How have you been?";if(navigator.share){try{await navigator.share({title:"A little check-in",text})}catch(e){}}else if(navigator.clipboard){try{await navigator.clipboard.writeText(text);document.getElementById("share").textContent="Copied! ✓"}catch(e){document.getElementById("share").textContent="Sharing unavailable"}}});
+const questions=["What's one little thing that made you smile recently?","If you could take a spontaneous day trip, where would you go?","What's something new you've learned lately?","Which song have you had on repeat?","What's a memory that always makes you smile?","What's one thing you're looking forward to?","If you could master any skill, what would it be?","What's your ideal way to spend a relaxed weekend?","Who is someone you haven't spoken to in a while?","What's a small win you're proud of this week?","What's a place you'd love to visit someday?","What's one thing people might be surprised to learn about you?"];
+let last=-1;document.getElementById("nextQuestion").addEventListener("click",()=>{let n;do{n=Math.floor(Math.random()*questions.length)}while(n===last);last=n;const el=document.getElementById("question");el.textContent=questions[n];el.animate([{opacity:0,transform:"translateY(7px)"},{opacity:1,transform:"translateY(0)"}],{duration:260})});
+document.getElementById("theme").addEventListener("click",()=>{const light=document.body.classList.toggle("light");document.getElementById("theme").textContent=light?"☾ Dark mode":"☀ Light mode";document.querySelector('meta[name="theme-color"]').content=light?"#f4f1ff":"#101526"});
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+</body></html>
